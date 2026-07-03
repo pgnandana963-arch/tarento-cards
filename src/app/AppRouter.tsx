@@ -7,11 +7,14 @@ import { AdminLayout } from './layouts/AdminLayout';
 import { EmployeeLayout } from './layouts/EmployeeLayout';
 import { AdminLoginPage } from '../features/auth/pages/AdminLoginPage';
 import { EmployeeAccessRequestPage } from '../features/auth/pages/EmployeeAccessRequestPage';
+import ComponentTest from '../components/ComponentTest';
 
 export function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path={ROUTES.COMPONENT_TEST} element={<ComponentTest />} />
+
         {/* Public / Unauthenticated Routes */}
         <Route element={<PublicLayout />}>
           <Route path={ROUTES.PUBLIC_CARD(':slug')} element={<div className="p-8 text-almost-black">Public Card Page Stub</div>} />

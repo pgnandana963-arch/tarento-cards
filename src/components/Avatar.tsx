@@ -34,7 +34,7 @@ export default function Avatar({
 
   return (
     <div
-      className={`${sizeClasses[size]} rounded-full overflow-hidden flex items-center justify-center bg-navy-100 text-almost-black font-semibold`}
+      className={`${sizeClasses[size]} rounded-full overflow-hidden flex items-center justify-center bg-navy-50 text-navy-500 font-semibold`}
     >
       {showFallback ? (
         <span>{getInitials(name)}</span>

@@ -1,4 +1,5 @@
 import { cn } from '../lib/utils.ts';
+import logoAsset from '../assets/Tarento_logo.svg';
 
 interface LogoProps {
   variant?: 'light' | 'dark';
@@ -14,11 +15,14 @@ export function Logo({ variant = 'light', size = 'md', className }: LogoProps) {
     lg: 'w-[160px] p-4',
   };
 
-  const src = variant === 'light' ? '/logo/tarento-logo-light.svg' : '/logo/tarento-logo-dark.svg';
+  const variantClasses = {
+    light: '',
+    dark: '',
+  };
 
   return (
     <div className={cn("inline-block box-border", sizeClasses[size], className)}>
-      <img src={src} alt="Tarento Logo" className="w-full h-auto block" />
+      <img src={logoAsset} alt="Tarento Logo" className={cn("w-full h-auto block", variantClasses[variant])} />
     </div>
   );
 }

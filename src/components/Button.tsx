@@ -9,10 +9,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export function Button({ variant, size = 'md', children, className, disabled, type = 'button', ...props }: ButtonProps) {
   // Accessibility baseline min-height and focus rings
-  const baseClasses = "inline-flex items-center justify-center min-h-[44px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
+  const baseClasses = "inline-flex items-center justify-center min-h-[44px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:opacity-50 disabled:pointer-events-none";
   
   const variantClasses = {
-    primary: "bg-gold-500 text-navy-500 rounded-button hover:bg-gold-600 font-medium",
+    primary: "bg-gold-500 text-navy-500 rounded-button hover:bg-gold-600 font-semibold shadow-sm shadow-navy-500/10",
     secondary: "border border-teal-500 text-teal-500 bg-transparent rounded-button hover:bg-teal-50",
     tertiary: "text-navy-500 bg-transparent hover:underline",
   };

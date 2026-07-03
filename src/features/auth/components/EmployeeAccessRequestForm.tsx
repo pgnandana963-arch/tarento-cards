@@ -32,9 +32,9 @@ export function EmployeeAccessRequestForm({ onSubmit, isLoading = false, error, 
 
   if (submitted) {
     return (
-      <div className="rounded-card border border-teal-200 bg-teal-50 px-4 py-5 text-teal-900">
+      <div className="rounded-card border border-teal-200 bg-teal-50 px-4 py-5 text-navy-500">
         <p className="text-sm font-semibold">Your request is pending HR approval.</p>
-        <p className="mt-1 text-sm text-teal-800">We&apos;ll notify you once access has been reviewed.</p>
+        <p className="mt-1 text-sm text-teal-600">We&apos;ll notify you once access has been reviewed.</p>
       </div>
     );
   }
