@@ -1,44 +1,64 @@
+import { cn } from "@/lib/utils";
+
+type BadgeStatus =
+  | "active"
+  | "inactive"
+  | "pending"
+  | "admin"
+  | "employee";
+
 interface BadgeProps {
-  status: "active" | "inactive" | "pending";
+  status: BadgeStatus;
+  className?: string;
 }
 
-const badgeVariants = {
+const badgeConfig = {
   active: {
-    bg: "bg-success-light",
-    text: "text-success",
     label: "Active",
+    className:
+      "bg-success-light text-success border border-success/20",
   },
+
   inactive: {
-    bg: "bg-light-gray",
-    text: "text-mid-gray",
     label: "Inactive",
+    className:
+      "bg-off-white text-mid-gray border border-light-gray",
   },
+
   pending: {
-    bg: "bg-warning-light",
-    text: "text-warning",
     label: "Pending",
+    className:
+      "bg-warning-light text-warning border border-warning/20",
+  },
+
+  admin: {
+    label: "Admin",
+    className:
+      "bg-navy-100 text-navy-500 border border-navy-200",
+  },
+
+  employee: {
+    label: "Employee",
+    className:
+      "bg-teal-50 text-teal-600 border border-teal-200",
   },
 };
 
-export default function Badge({ status }: BadgeProps) {
-  const variant = badgeVariants[status];
+export default function Badge({
+  status,
+  className,
+}: BadgeProps) {
+  const config = badgeConfig[status];
 
   return (
     <span
-      className={`
-        inline-flex
-        items-center
-        justify-center
-        rounded-full
-        px-3
-        py-1
-        text-xs
-        font-medium
-        ${variant.bg}
-        ${variant.text}
-      `}
+      className={cn(
+        "inline-flex items-center rounded-full px-3 py-1 text-xs font-medium",
+        config.className,
+        className
+      )}
     >
-      {variant.label}
+      {config.label}
     </span>
   );
 }

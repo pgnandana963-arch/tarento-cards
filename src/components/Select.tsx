@@ -1,5 +1,5 @@
 import { type SelectHTMLAttributes, useId } from 'react';
-import { cn } from '@/lib/cn';
+import { cn } from '@/lib/utils';
 import { sharedFormClasses } from './Input';
 
 interface Option {

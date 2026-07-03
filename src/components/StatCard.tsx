@@ -1,71 +1,115 @@
-import type { LucideIcon } from "lucide-react";
-import { TrendingDown, TrendingUp } from "lucide-react";
+import { TrendingDown, TrendingUp, type LucideIcon } from "lucide-react";
 
-import Card from "./Card";
-import Icon from "./Icon";
+import { Card } from "@/components/Card";
+import { Icon } from "@/components/Icon";
+import { cn } from "@/lib/utils";
 
 interface StatCardProps {
   label: string;
+
   value: string | number;
+
   trend?: {
     direction: "up" | "down";
     value: string;
   };
-  icon?: LucideIcon;
-}
 
-const trendConfig = {
-  up: {
-    icon: TrendingUp,
-    color: "text-success",
-  },
-  down: {
-    icon: TrendingDown,
-    color: "text-destructive",
-  },
-};
+  icon?: LucideIcon;
+
+  className?: string;
+}
 
 export default function StatCard({
   label,
   value,
   trend,
   icon,
+  className,
 }: StatCardProps) {
   return (
-    <Card padding="md">
-      <div className="flex flex-col gap-3">
+    <Card
+      className={cn(
+        "flex flex-col justify-between min-h-[180px]",
+        className
+      )}
+    >
+      {/* Top */}
 
-        <div className="flex items-center gap-2">
+      <div className="flex items-start justify-between">
 
-          {icon && <Icon icon={icon} tone="secondary" size={24} />}
+        <div>
 
-          <p className="text-xs text-mid-gray">
+          <p className="text-sm text-mid-gray">
             {label}
           </p>
 
+          <h2 className="mt-3 text-4xl font-bold text-navy-500">
+            {value}
+          </h2>
+
         </div>
 
-        <h2 className="text-3xl font-bold text-navy-500">
-          {value}
-        </h2>
-
-        {trend && (
+        {icon && (
           <div
-            className={`flex items-center gap-1 ${trendConfig[trend.direction].color}`}
+            className="
+            h-12
+            w-12
+            rounded-full
+            bg-navy-100
+            flex
+            items-center
+            justify-center
+            "
           >
             <Icon
-              icon={trendConfig[trend.direction].icon}
-              tone="secondary"
-              size={16}
+              icon={icon}
+              tone="default"
+              size={24}
             />
-
-            <span className="text-sm font-medium">
-              {trend.value}
-            </span>
           </div>
         )}
 
       </div>
+
+      {/* Bottom */}
+
+      {trend && (
+
+        <div className="mt-6 flex items-center gap-2">
+
+          <Icon
+            icon={
+              trend.direction === "up"
+                ? TrendingUp
+                : TrendingDown
+            }
+            tone={
+              trend.direction === "up"
+                ? "secondary"
+                : "accent"
+            }
+            size={16}
+          />
+
+          <span
+            className={cn(
+              "text-sm font-medium",
+              trend.direction === "up"
+                ? "text-success"
+                : "text-destructive"
+            )}
+          >
+            {trend.value}
+          </span>
+
+          <span className="text-sm text-mid-gray">
+            compared to last period
+          </span>
+
+        </div>
+
+      )}
+
     </Card>
   );
 }
