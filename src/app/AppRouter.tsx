@@ -5,9 +5,8 @@ import { ProtectedRoute } from './ProtectedRoute';
 import { PublicLayout } from './layouts/PublicLayout';
 import { AdminLayout } from './layouts/AdminLayout';
 import { EmployeeLayout } from './layouts/EmployeeLayout';
-
-// Temporary placeholders for Phase 7 page components
-const Placeholder = ({ title }: { title: string }) => <div className="p-8 text-almost-black">{title} Page Stub</div>;
+import { AdminLoginPage } from '../features/auth/pages/AdminLoginPage';
+import { EmployeeAccessRequestPage } from '../features/auth/pages/EmployeeAccessRequestPage';
 
 export function AppRouter() {
   return (
@@ -15,10 +14,9 @@ export function AppRouter() {
       <Routes>
         {/* Public / Unauthenticated Routes */}
         <Route element={<PublicLayout />}>
-          {/* We pass ':slug' to your function to generate the React Router template string */}
-          <Route path={ROUTES.PUBLIC_CARD(':slug')} element={<Placeholder title="Public Card" />} />
-          <Route path={ROUTES.ADMIN_LOGIN} element={<Placeholder title="Admin Login" />} />
-          <Route path={ROUTES.EMPLOYEE_ACCESS_REQUEST} element={<Placeholder title="Employee Request Access" />} />
+          <Route path={ROUTES.PUBLIC_CARD(':slug')} element={<div className="p-8 text-almost-black">Public Card Page Stub</div>} />
+          <Route path={ROUTES.ADMIN_LOGIN} element={<AdminLoginPage />} />
+          <Route path={ROUTES.EMPLOYEE_ACCESS_REQUEST} element={<EmployeeAccessRequestPage />} />
         </Route>
 
         {/* Admin Routes */}
@@ -27,10 +25,10 @@ export function AppRouter() {
             <AdminLayout />
           </ProtectedRoute>
         }>
-          <Route path={ROUTES.ADMIN_DASHBOARD} element={<Placeholder title="Admin Dashboard" />} />
-          <Route path={ROUTES.ADMIN_APPROVALS} element={<Placeholder title="Approval Requests" />} />
-          <Route path={ROUTES.ADMIN_EMPLOYEES} element={<Placeholder title="Employee Directory" />} />
-          <Route path={ROUTES.ADMIN_COMPANY_PROFILE} element={<Placeholder title="Company Profile" />} />
+          <Route path={ROUTES.ADMIN_DASHBOARD} element={<div className="p-8 text-almost-black">Admin Dashboard Page Stub</div>} />
+          <Route path={ROUTES.ADMIN_APPROVALS} element={<div className="p-8 text-almost-black">Approval Requests Page Stub</div>} />
+          <Route path={ROUTES.ADMIN_EMPLOYEES} element={<div className="p-8 text-almost-black">Employee Directory Page Stub</div>} />
+          <Route path={ROUTES.ADMIN_COMPANY_PROFILE} element={<div className="p-8 text-almost-black">Company Profile Page Stub</div>} />
         </Route>
 
         {/* Employee Routes */}
@@ -39,9 +37,9 @@ export function AppRouter() {
             <EmployeeLayout />
           </ProtectedRoute>
         }>
-          <Route path={ROUTES.EMPLOYEE_DASHBOARD} element={<Placeholder title="Employee Dashboard" />} />
-          <Route path={ROUTES.EMPLOYEE_EDIT_PROFILE} element={<Placeholder title="Edit Profile" />} />
-          <Route path={ROUTES.EMPLOYEE_SHARE} element={<Placeholder title="Share QR Card" />} />
+          <Route path={ROUTES.EMPLOYEE_DASHBOARD} element={<div className="p-8 text-almost-black">Employee Dashboard Page Stub</div>} />
+          <Route path={ROUTES.EMPLOYEE_EDIT_PROFILE} element={<div className="p-8 text-almost-black">Edit Profile Page Stub</div>} />
+          <Route path={ROUTES.EMPLOYEE_SHARE} element={<div className="p-8 text-almost-black">Share QR Card Page Stub</div>} />
         </Route>
 
         {/* Fallback */}

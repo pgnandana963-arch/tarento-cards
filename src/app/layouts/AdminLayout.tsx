@@ -4,8 +4,11 @@ import { Logo } from '../../components/Logo';
 import { Icon } from '../../components/Icon';
 import { ROUTES } from '../../config/routes';
 import { cn } from '../../lib/utils';
+import { useAuth } from '../../features/auth/hooks/useAuth';
 
 export function AdminLayout() {
+  const { user, logout } = useAuth();
+
   const navItems = [
     { to: ROUTES.ADMIN_DASHBOARD, label: 'Dashboard', icon: LayoutDashboard },
     { to: ROUTES.ADMIN_APPROVALS, label: 'Approval requests', icon: UserPlus },
@@ -44,8 +47,8 @@ export function AdminLayout() {
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col min-w-0">
         <header className="bg-white border-b border-light-gray h-16 px-6 flex items-center justify-end shrink-0 gap-4">
-          <span className="text-sm font-semibold text-navy-500">Admin User</span>
-          <button className="p-2 text-mid-gray hover:text-destructive transition-colors">
+          <span className="text-sm font-semibold text-navy-500">{user?.name ?? 'Admin User'}</span>
+          <button type="button" onClick={logout} className="p-2 text-mid-gray hover:text-destructive transition-colors">
             <Icon icon={LogOut} className="text-inherit" />
           </button>
         </header>

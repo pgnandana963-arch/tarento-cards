@@ -1,5 +1,5 @@
 import { type InputHTMLAttributes, useId } from 'react';
-import { cn } from '../lib/cn';
+import { cn } from '../lib/utils.ts';
 
 // Shared literal string for Input and Select to prevent stylistic drift
 export const sharedFormClasses = "w-full min-h-[44px] border border-light-gray rounded-button px-3 py-2 text-navy-500 focus:outline-none focus:ring-2 focus:ring-teal-400 disabled:opacity-50 disabled:bg-off-white transition-colors bg-white";

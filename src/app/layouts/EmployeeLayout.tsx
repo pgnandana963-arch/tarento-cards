@@ -4,8 +4,11 @@ import { Logo } from '../../components/Logo';
 import { Icon } from '../../components/Icon';
 import { ROUTES } from '../../config/routes';
 import { cn } from '../../lib/utils';
+import { useAuth } from '../../features/auth/hooks/useAuth';
 
 export function EmployeeLayout() {
+  const { user, logout } = useAuth();
+
   const navItems = [
     { to: ROUTES.EMPLOYEE_DASHBOARD, label: 'Dashboard', icon: LayoutDashboard },
     { to: ROUTES.EMPLOYEE_EDIT_PROFILE, label: 'My profile', icon: UserCircle },
@@ -40,8 +43,8 @@ export function EmployeeLayout() {
 
       <main className="flex-1 flex flex-col min-w-0">
         <header className="bg-white border-b border-light-gray h-16 px-6 flex items-center justify-end shrink-0 gap-4">
-          <span className="text-sm font-semibold text-navy-500">Employee Name</span>
-          <button className="p-2 text-mid-gray hover:text-destructive transition-colors">
+          <span className="text-sm font-semibold text-navy-500">{user?.name ?? 'Employee Name'}</span>
+          <button type="button" onClick={logout} className="p-2 text-mid-gray hover:text-destructive transition-colors">
             <Icon icon={LogOut} className="text-inherit" />
           </button>
         </header>

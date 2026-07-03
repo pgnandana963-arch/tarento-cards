@@ -1,8 +1,8 @@
 import type { LucideIcon } from "lucide-react";
 import { TrendingDown, TrendingUp } from "lucide-react";
 
-import Card from "./Card";
-import Icon from "./Icon";
+import { Card } from "./Card";
+import { Icon } from "./Icon";
 
 interface StatCardProps {
   label: string;

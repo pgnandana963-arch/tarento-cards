@@ -35,9 +35,12 @@ export function formatDate(date: string | Date, format: 'short' | 'relative' = '
  * A thin fetch wrapper that will eventually attach the auth token from the Zustand store[cite: 79].
  */
 export class ApiError extends Error {
-  constructor(public status: number, message: string) {
+  public status: number;
+ 
+  constructor(status: number, message: string) {
     super(message);
-    this.name = 'ApiError';
+    this.name = "ApiError";
+    this.status = status;
   }
 }
 
