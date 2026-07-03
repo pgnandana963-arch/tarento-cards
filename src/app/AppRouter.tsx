@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { ROUTES } from '../config/routes';
 import { ROLES } from '../config/auth';
 import { ProtectedRoute } from './ProtectedRoute';
@@ -11,8 +11,7 @@ import ComponentTest from '../components/ComponentTest';
 
 export function AppRouter() {
   return (
-    <BrowserRouter>
-      <Routes>
+    <Routes>
         <Route path={ROUTES.COMPONENT_TEST} element={<ComponentTest />} />
 
         {/* Public / Unauthenticated Routes */}
@@ -48,6 +47,5 @@ export function AppRouter() {
         {/* Fallback */}
         <Route path="*" element={<Navigate to={ROUTES.ADMIN_LOGIN} replace />} />
       </Routes>
-    </BrowserRouter>
   );
 }
