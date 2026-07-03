@@ -3,11 +3,9 @@ import { AuthProvider } from './providers/AuthProvider';
 import { AppRouter } from './AppRouter';
 
 export function App() {
-  return (
-    <QueryProvider>
-      <AuthProvider>
-        <AppRouter />
-      </AuthProvider>
-    </QueryProvider>
-  );
+  return QueryProvider({
+    children: AuthProvider({
+      children: AppRouter(),
+    }),
+  });
 }
