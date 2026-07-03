@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-50: #BEC5CE;
+  --color-navy-100: #7E8A9A;
+  --color-navy-200: #4A5A70;
+  --color-navy-300: #2D3E54;
+  --color-navy-400: #18293D;
+  --color-navy-500: #17283C;
+  --color-navy-600: #0F3333;
+  --color-navy-700: #020204;
+
+  --color-teal-50: #E3F7F6;
+  --color-teal-100: #B8ECE9;
+  --color-teal-200: #8FE0DC;
+  --color-teal-300: #4BA5A4;
+  --color-teal-400: #17A4A3;
+  --color-teal-500: #1E8F8E;
+  --color-teal-600: #186E6E;
+  --color-teal-700: #135858;
+
+  --color-gold-50: #FEF6E0;
+  --color-gold-100: #FBE7B0;
+  --color-gold-400: #F5BA3E;
+  --color-gold-500: #F0A500;
+  --color-gold-600: #C88800;
+  --color-gold-700: #9A6800;
+
+  --color-off-white: #F6F7F9;
+  --color-light-gray: #D8DEE5;
+  --color-mid-gray: #7C8696;
+  --color-almost-black: #0D1218;
+
+  --color-success: #22C55E;
+  --color-success-light: #DCFCE7;
+  --color-warning: #F59E0B;
+  --color-warning-light: #FEF3C7;
+  --color-destructive: #EF4444;
+  --color-destructive-light: #FEE2E2;
+
+  --font-sans: 'Inter', 'Plus Jakarta Sans', 'Open Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --radius-card: 8px;
+  --radius-modal: 12px;
+  --radius-button: 6px;
+}
