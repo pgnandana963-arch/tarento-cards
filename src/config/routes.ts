@@ -1,5 +1,6 @@
 export const ROUTES = {
   // Static routes are fine as strings
+  COMPONENT_TEST: '/components-test',
   ADMIN_LOGIN: '/admin/login',
   ADMIN_DASHBOARD: '/admin/dashboard',
   ADMIN_APPROVALS: '/admin/approvals',

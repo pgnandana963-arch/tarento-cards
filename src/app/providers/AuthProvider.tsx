@@ -1,15 +1,24 @@
 import { useEffect, useState, type ReactNode } from 'react';
+import { useAuthStore } from '../../stores/authStore';
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    // TODO: Phase 7 - Connect to Zustand store's persist hook
-    // Example: useAuthStore.persist.onFinishHydration(() => setIsHydrated(true));
-    setIsHydrated(true); // Stubbed completion
+    const unsubscribe = useAuthStore.persist.onFinishHydration(() => {
+      setIsHydrated(true);
+    });
+
+    if (useAuthStore.persist.hasHydrated()) {
+      setIsHydrated(true);
+    } else {
+      void useAuthStore.persist.rehydrate();
+    }
+
+    return unsubscribe;
   }, []);
 
-  if (!isHydrated) return null; // Prevents UI flash
+  if (!isHydrated) return null;
 
   return <>{children}</>;
 }

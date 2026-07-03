@@ -1,5 +1,5 @@
 import { type SelectHTMLAttributes, useId } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '../lib/utils.ts';
 import { sharedFormClasses } from './Input';
 
 interface Option {
@@ -21,7 +21,7 @@ export function Select({ label, value, onChange, options, className, required, p
 
   return (
     <div className={cn("flex flex-col gap-1.5", className)}>
-      <label htmlFor={id} className="text-sm font-medium text-mid-gray">
+      <label htmlFor={id} className="text-sm font-medium text-navy-100">
         {label} {required && <span className="text-destructive">*</span>}
       </label>
       <select
