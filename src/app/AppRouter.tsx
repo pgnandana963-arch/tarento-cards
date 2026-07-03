@@ -8,7 +8,7 @@ import { EmployeeLayout } from './layouts/EmployeeLayout';
 import { AdminLoginPage } from '../features/auth/pages/AdminLoginPage';
 import { EmployeeAccessRequestPage } from '../features/auth/pages/EmployeeAccessRequestPage';
 import { AdminDashboardPage } from '../features/admin/pages/AdminDashboardPage';
-import { ApprovalRequestsPage } from '../features/admin/pages/ApprovalRequestsPage';
+import { AdminProfilePage } from '../features/admin/pages/AdminProfilePage';
 import { EmployeeDirectoryPage } from '../features/admin/pages/EmployeeDirectoryPage';
 import { CompanyProfilePage } from '../features/admin/pages/CompanyProfilePage';
 import ComponentTest from '../components/ComponentTest';
@@ -32,7 +32,7 @@ export function AppRouter() {
           </ProtectedRoute>
         }>
           <Route path={ROUTES.ADMIN_DASHBOARD} element={<AdminDashboardPage />} />
-          <Route path={ROUTES.ADMIN_APPROVALS} element={<ApprovalRequestsPage />} />
+          <Route path={ROUTES.ADMIN_PROFILE} element={<AdminProfilePage />} />
           <Route path={ROUTES.ADMIN_EMPLOYEES} element={<EmployeeDirectoryPage />} />
           <Route path={ROUTES.ADMIN_COMPANY_PROFILE} element={<CompanyProfilePage />} />
         </Route>
