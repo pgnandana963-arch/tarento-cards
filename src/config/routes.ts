@@ -11,6 +11,8 @@ export const ROUTES = {
   EMPLOYEE_DASHBOARD: '/employee/dashboard',
   EMPLOYEE_EDIT_PROFILE: '/employee/profile/edit',
   EMPLOYEE_SHARE: '/employee/share',
+  BUSINESS_CARD: '/business-card',
+  TEST_PAGE: '/test-page',
 
   // Dynamic routes MUST be functions
   PUBLIC_CARD: (slug: string) => `/c/${slug}`,

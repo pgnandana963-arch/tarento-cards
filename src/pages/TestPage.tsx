@@ -1,9 +1,9 @@
-import ComponentTest from "@/components/ComponentTest";
+import BusinessCardPage from "./BusinessCardPage";
 
 export default function TestPage() {
   return (
     <div>
-      <ComponentTest />
+      <BusinessCardPage />
     </div>
   );
 }

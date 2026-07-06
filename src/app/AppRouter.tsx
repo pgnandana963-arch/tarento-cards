@@ -11,12 +11,16 @@ import { AdminDashboardPage } from '../features/admin/pages/AdminDashboardPage';
 import { AdminProfilePage } from '../features/admin/pages/AdminProfilePage';
 import { EmployeeDirectoryPage } from '../features/admin/pages/EmployeeDirectoryPage';
 import { CompanyProfilePage } from '../features/admin/pages/CompanyProfilePage';
+import BusinessCardPage from '../pages/BusinessCardPage';
 import ComponentTest from '../components/ComponentTest';
+import TestPage from '../pages/TestPage';
 
 export function AppRouter() {
   return (
     <Routes>
         <Route path={ROUTES.COMPONENT_TEST} element={<ComponentTest />} />
+        <Route path={ROUTES.TEST_PAGE} element={<TestPage />} />
+        <Route path={ROUTES.BUSINESS_CARD} element={<BusinessCardPage />} />
 
         {/* Public / Unauthenticated Routes */}
         <Route element={<PublicLayout />}>
